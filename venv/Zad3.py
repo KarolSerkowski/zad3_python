@@ -88,13 +88,13 @@ def makeStatistic(statisticTemplate = {}, contentList = []):
     for row in contentList:
         indexWojewodztwo = row['Województwo']
         updateStatistic = statisticTemplate[indexWojewodztwo]
-        if(statisticTemplate[indexWojewodztwo]):
+        if(updateStatistic):
             # print(indexWojewodztwo)
-            for x in (statisticTemplate[indexWojewodztwo]):
+            for x in (updateStatistic):
 
 
-                statisticTemplate['%s'%x]+=row['%s'%x]
-                print(statisticTemplate['%s' % x])
+                updateStatistic['%s'%x]+= int(row['%s'%x])
+                print(updateStatistic['%s' % x])
 
     return statisticTemplate
 
