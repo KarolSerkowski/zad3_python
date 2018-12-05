@@ -8,7 +8,7 @@ with open('prezydent_2015_tura1.csv', 'r') as csvfile:
         contentList.append(line)
 
     len(contentList)
-    # print(list(contentList))
+
 
 
 statisticTemplate={
@@ -90,75 +90,22 @@ def makeStatistic(statisticTemplate = {}, contentList = []):
         updateStatistic = statisticTemplate[indexWojewodztwo]
         if(updateStatistic):
             # print(indexWojewodztwo)
-            for x in (updateStatistic):
-
-
-                updateStatistic['%s'%x]+= int(row['%s'%x])
-                print(updateStatistic['%s' % x])
-
+            for prezydent in (updateStatistic):
+                updateStatistic['%s'%prezydent]+= int(row['%s'%prezydent])
+                # print(prezydent)
+                # print(updateStatistic['%s' %prezydent])
     return statisticTemplate
 
 wyniki= makeStatistic(statisticTemplate,contentList)
+for wypisujeWojewodztwo in wyniki:
+    print('')
+    print(wypisujeWojewodztwo)
+    print('')
+    for prezydent in wyniki['%s'%wypisujeWojewodztwo]:
+        print(prezydent)
+        print(wyniki[wypisujeWojewodztwo][prezydent])
 
 
 
 
 
-
-    #
-    # sumator = []
-    # i = 0
-    # for row in contentList:
-    #     # jesli i<= 39 (liczba kolumn) zapetlaj całego if-a, moze dopisywac do tablicy asocjacyjnej aby nie nadpisywało watosci
-    #     while (i <= 39):
-    #         print(i)
-    #
-    #         if sumator[i] == row[0]:
-    #             sumator[7] += row[7]
-    #             print (sumator[i])
-    #             # i += 1
-    #
-    #         else:
-    #             sumator[len(sumator + 1)] = row[0]
-    #             sumator[7] += row[7]
-    #             # i=i+1
-    #
-    #         i += 1
-    #         print(i)
-
-
-
-
-# i+=1
-
-# print(row[0])
-# print(row[7])
-# i+=1
-
-# with open('prezydent_2015_tura1.csv', 'r') as csvfile:
-#     csvreader = csv.reader(csvfile, delimiter=';')
-#
-#
-#     for row in csvreader:
-#         print(row[0]) # wartość kolumny 1 z tego wiersza
-#         print(row[1]) # analogicznie - 2 kolumna
-#         print(row[2]) # 3cia
-#
-#     def
-
-# with open('prezydent_2015_tura1.csv', 'r') as csvfile:
-#     csvreader = csv.DictReader(csvfile, delimiter=';')
-    # print(csvreader.fieldnames)
-
-    # print(list(csvreader))
-
-    # for row in d:
-    #
-    #     print(row[Gmina]) # wartość kolumny 1 z tego wiersza
-    #     print(row[1]) # analogicznie - 2 kolumna
-    #     print(row[2]) # 3cia
-
-
-    # for row in csvreader:
-    #     print(row['Gmina'])
-#         # print(row['Andrzej Sebastian Duda'])
