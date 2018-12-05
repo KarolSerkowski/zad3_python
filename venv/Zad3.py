@@ -1,4 +1,3 @@
-# class AnalysisCsv:
 import csv
 with open('prezydent_2015_tura1.csv', 'r') as csvfile:
     content = csv.DictReader(csvfile, delimiter=';')
@@ -6,10 +5,6 @@ with open('prezydent_2015_tura1.csv', 'r') as csvfile:
     contentList = []
     for line in content:
         contentList.append(line)
-
-    len(contentList)
-
-
 
 statisticTemplate={
         'polska': {'Grzegorz Michał Braun': 0, 'Andrzej Sebastian Duda': 0, 'Adam Sebastian Jarubas': 0,
@@ -96,16 +91,24 @@ def makeStatistic(statisticTemplate = {}, contentList = []):
                 # print(updateStatistic['%s' %prezydent])
     return statisticTemplate
 
-wyniki= makeStatistic(statisticTemplate,contentList)
-for wypisujeWojewodztwo in wyniki:
+def displayStatistics(wyniki = []):
+    for wypisujeWojewodztwo in wyniki:
+        print('')
+        print(wypisujeWojewodztwo)
+        print('')
+        for prezydent in wyniki['%s'%wypisujeWojewodztwo]:
+            print(prezydent)
+            wyniki['polska'][prezydent] += int(wyniki[wypisujeWojewodztwo][prezydent])
+            print(wyniki[wypisujeWojewodztwo][prezydent])
     print('')
-    print(wypisujeWojewodztwo)
-    print('')
-    for prezydent in wyniki['%s'%wypisujeWojewodztwo]:
+    print('POLSKA')
+    for prezydent in wyniki['polska']:
         print(prezydent)
-        print(wyniki[wypisujeWojewodztwo][prezydent])
+        print(wyniki['polska'][prezydent])
 
 
 
+wyniki = makeStatistic(statisticTemplate,contentList)
+sumaWynikow = displayStatistics(wyniki)
 
 
